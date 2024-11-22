@@ -1,6 +1,9 @@
-body{
+/* body{
     background-image: url(/img/PorscheGIF.gif);
-    
     background-size: cover;
     overflow: hidden;
+} */
+
+body{
+    background-color:white;
 }
