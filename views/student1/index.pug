@@ -2,35 +2,67 @@ doctype html
 link(rel='stylesheet' href='css/student1.css')
 
 head
-    title Degree Webpage
+  title Degree Webpage
 body
-    h1 Daniel Trice
-    h2 Degree Name
+  h1 Daniel Trice
+  h2 Degree Name
 
-section
-  h2 Location
-  p Describe Location of University
-section
-  h2 About
+
+
   section
-    h3  Something about the university
-  section
-    h3  Something about the university
-  section
-    h3  Something about the university
-section
-  h2 Things To Do
-  ul
-    li
-      | something to do
-    li
-      | something to do
-    li
-      | something to do
-    li
-      | something to do
-    li
-      | something to do
-section
-  a(href='comments') Comments
-  //- ul  display 5 comments from database here 
+    a(href='/commentsS1') Comments
+    
+    ul
+    - if (comments && comments.length > 0)
+        - for (let i = 0; i < comments.length; i++)
+            li= comments[i].comment
+              form(action="/delete", method="post")
+              input(type="hidden", name="id" value=comments[i].id)
+              input(type="submit", value="X")
+    - else
+        p No Comments available.
+
+
+  section(id = homeButton)
+    a(href='/') HOME
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//- section
+//-   h2 Location
+//-   p Describe Location of University
+//- section
+//-   h2 About
+//-   section
+//-     h3  Something about the university
+//-   section
+//-     h3  Something about the university
+//-   section
+//-     h3  Something about the university
+//- section
+//-   h2 Things To Do
+//-   ul
+//-     li
+//-       | something to do
+//-     li
+//-       | something to do
+//-     li
+//-       | something to do
+//-     li
+//-       | something to do
+//-     li
+//-       | something to do

@@ -1,3 +1,6 @@
 body{
-    background-color: hotpink;
+    background-image: url(/img/PorscheGIF.gif);
+    
+    background-size: cover;
+    overflow: hidden;
 }
