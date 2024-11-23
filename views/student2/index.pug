@@ -9,8 +9,8 @@ body
         nav 
             ul
                 li 
-                    //does not work
-                    a(href="/views") Home
+                    //does not work currently
+                    a(href="/") Home
                 li 
                     a(href="/student1") Student 1
                 li 
@@ -47,6 +47,20 @@ body
         h2 Comments
         hr
         section#commentSection
+            label(for="comment-box") Add your own Comment here
+            textarea#textbox(name="comment-box" placeholder="Add Comment...")
+        
+        ul
+        -console.log(comments);
+        //- for (let i = 0; i < comments.length; i++)
+            li.comment= comments.comment
+                form(action="/edit", method="post")
+                    input(type="hidden", name="id" value=tasks[i].id)
+                    input(type="submit" value="Edit")
+                form(action="/delete", method="post")
+                    input(type="hidden", name="id" value=tasks[i].id)
+                    input(type="submit" value="Delete")
+              
 
 
 
