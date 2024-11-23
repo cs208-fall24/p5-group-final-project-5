@@ -2,6 +2,64 @@ doctype html
 link(rel='stylesheet' href='css/student2.css')
 
 head
-    title Under Water Basket weaver (Masters) - student 2
+    title Zombie Historical Arts (Masters) - student 2
 body
-    h1 You will learn how to weave baskets underwater
+    section#header
+        h1 Gavin Tafoya
+        nav 
+            ul
+                li 
+                    a(href="/") Home
+                li 
+                    a(href="/student1") Student 1
+                li 
+                    a(href="/student2") Student 2
+                li 
+                    a(href="/student3") Student 3
+    h2 Games, Interactive Media and Mobile
+
+    section.area
+        h2 Location
+        p  The university is located is in a midieval castle. The nearby land is flooded with rubber ducks of all kinds, some are regular rubber ducks, some have fancy mustaches. Some even have magical powers! 
+    section.area
+        h2 About
+        section 
+            h3 Thing
+            p Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, repudiandae. Veritatis dolores recusandae earum! Nisi?
+        section 
+            h3 Thing
+            p Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aperiam quisquam, eum nulla repudiandae, libero inventore voluptates nesciunt magni voluptate dolorum in esse totam sapiente. Quidem cupiditate perspiciatis consequuntur sint error architecto ratione ipsa totam dolor rerum eius quae eaque placeat exercitationem neque nisi voluptas minima saepe assumenda, et consequatur. Quidem.
+        section 
+            h3 Thing
+            p Lorem ipsum dolor sit amet consectetur, adipisicing elit. Animi, quidem id maiores nobis distinctio amet mollitia, a quis vel adipisci odit tempore! Ut quas laudantium non voluptates architecto sint vitae!
+    section.area 
+        h2 Things To Do 
+        ul
+            li Lorem.
+            li Lorem.
+            li Lorem, ipsum.
+    section.area
+        h2 Images
+        img(src="https://blog.placeit.net/wp-content/uploads/2021/03/mockup-of-a-pro-gamer-wearing-a-t-shirt.png")
+        img(src="https://www.funcarnival.com/cdn/shop/files/N1673-a_800x.jpg?v=1693583898")
+    section.area
+        h2 Comments
+        hr
+        section#commentSection
+            label(for="comment-box") Add your own Comment here
+            textarea#textbox(name="comment-box" placeholder="Add Comment...")
+        
+        ul
+        -console.log(comments);
+        //- for (let i = 0; i < comments.length; i++)
+            li.comment= comments.comment
+                form(action="/edit", method="post")
+                    input(type="hidden", name="id" value=tasks[i].id)
+                    input(type="submit" value="Edit")
+                form(action="/delete", method="post")
+                    input(type="hidden", name="id" value=tasks[i].id)
+                    input(type="submit" value="Delete")
+              
+
+
+

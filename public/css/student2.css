@@ -1,3 +1,64 @@
+:root{
+    --main-color: #202c59;          /* Space Cadet */
+    --highlight-color: #d95d39;          /* Cinnabar */
+    --link-color: #f497da;     /* Plum */
+    --page-background: #f0f4ef;     /* Baby Powder */
+    --element-background: #06a77d;  /* Jungle Green */
+}
+
 body{
-    background-color: orange;
+    background-color: var(--page-background);
+    text-align: center;
+    margin: 0;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+}
+
+nav ul{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+nav ul li a{
+    color: var(--link-color);
+    text-decoration: none;
+    font-size: 1.25rem;
+}
+
+nav ul li a:visited {
+    color: var(--link-color);
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    color: var(--highlight-color);
+}
+
+#header, .area{
+    background-color: var(--element-background);
+    padding: 2vh 2vw;
+}
+
+#header{
+    margin: 0;
+}
+
+.area{
+    margin: 2vh 2vw;
+    border-radius: 10px;   
+}
+
+.area section{
+    background-color: var(--page-background);
+    border-radius: 10px;
+    padding: 2vh 2vw;
+    width: 80%;
+    margin: 2vh auto;
+    color: var(--main-color);
+}
+
+img{
+    width: 80%;
+    border-radius: 50px;
 }
