@@ -2,15 +2,17 @@ doctype html
 link(rel='stylesheet' href='css/student1.css')
 
 head
-    title Degree Webpage
+  title Degree Webpage
 body
-    h1 Daniel Trice
-    h2 Degree Name
+  h2 Hoopology
 
-section
-  h2 Location
-  p Describe Location of University
-section
+
+section(id = location)
+  h2 Chapel Hill, North Carolina
+  p Describe Location of University 
+
+  
+section(id = about)
   h2 About
   section
     h3  Something about the university
@@ -18,9 +20,9 @@ section
     h3  Something about the university
   section
     h3  Something about the university
-section
+section(id = activities)
   h2 Things To Do
-  ul
+  ul(id = activitiesList)
     li
       | something to do
     li
@@ -31,7 +33,35 @@ section
       | something to do
     li
       | something to do
-img
-img
-p  link to comments page 
-ul  display 5 comments from database here 
+
+
+  section
+    a(href='/commentsS1') Comments
+    
+    ul
+    - if (comments && comments.length > 0)
+        - for (let i = 0; i < comments.length; i++)
+            li= comments[i].comment
+    - else
+        p No Comments available.
+
+
+  section(id = homeButton)
+    a(href='/') HOME
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

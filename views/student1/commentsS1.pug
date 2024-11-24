@@ -1,0 +1,27 @@
+doctype html
+link(rel='stylesheet' href='css/student1.css')
+
+head
+    title Comments
+body
+    h1 Leave A Comment
+    #container.col
+    p
+        form(action='/newComment' method='post')
+            input(type='text' name='todo' placeholder='New Item Here')
+            br
+            input(type='submit' value='Add Item' name='button')
+
+    ul
+    - if (comments && comments.length > 0)
+        - for (let i = 0; i < comments.length; i++)
+            li= comments[i].comment
+            form(action="/deleteS1", method="post")
+                input(type="hidden", name="id" value=comments[i].id)
+                input(type="submit", value="X")
+    - else
+        p No Comments available.
+
+
+    section 
+    a(href='/student1') Back
