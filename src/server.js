@@ -86,10 +86,72 @@ app.get('/student2', function (req, res) {
   res.render('student2')
 })
 
+
+//Student 3
+db.run(`CREATE TABLE IF NOT EXISTS student3_comments (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    comment TEXT NOT NULL
+)`)
+
 app.get('/student3', function (req, res) {
-  console.log('GET called') 
-  res.render('student3')
-})
+    console.log('GET /student3 called');
+    const local = { comments: [] };
+
+    db.all('SELECT id, comment FROM student3_comments ORDER BY RANDOM() LIMIT 5', function (err, rows) {
+        if (err) {
+            console.error('Error fetching comments:', err);
+            return res.render('student3', local); 
+        }
+
+        local.comments = rows.map(row => ({
+            id: row.id,
+            comment: row.comment
+        }));
+
+        res.render('student3', local);
+    });
+});
+
+app.get('/student3/commentsS3', function (req, res) {
+    console.log('GET /student3/commentsS3 called');
+    const local = { comments: [] };
+
+    db.all('SELECT id, comment FROM student3_comments', function (err, rows) {
+        if (err) {
+            console.error('Error fetching comments:', err);
+            return res.render('student3/commentsS3', local); 
+        }
+
+        local.comments = rows.map(row => ({
+            id: row.id,
+            comment: row.comment
+        }));
+
+        res.render('student3/commentsS3', local);
+    });
+});
+
+app.post('/student3/addCommentS3', function (req, res) {
+    const commentInput = req.body.todo;
+    if (!commentInput || commentInput.trim() === '') {
+        return res.redirect('/student3/commentsS3');
+    }
+
+    console.log('Adding comment for Student 3');
+    const stmt = db.prepare('INSERT INTO student3_comments (comment) VALUES (?)');
+    stmt.run(commentInput);
+    stmt.finalize();
+    res.redirect('/student3/commentsS3');
+});
+
+app.post('/student3/deleteS3', function (req, res) {
+    const commentId = req.body.id;
+    console.log(`Deleting comment for Student 3 with ID: ${commentId}`);
+    const stmt = db.prepare('DELETE FROM student3_comments WHERE id = ?');
+    stmt.run(commentId);
+    stmt.finalize();
+    res.redirect('/student3/commentsS3');
+});
 
 // Start the web server
 app.listen(3000, function () {

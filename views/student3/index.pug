@@ -1,29 +1,34 @@
 doctype html
-link(rel='stylesheet' href='css/student3.css')
-
 head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
   title Landing Page
-  script(type='text/javascript').
-    if (foo) bar(1 + 5)
-h1 Anup
+  link(rel='stylesheet' href='css/student3.css')
+h1 Anup Bhattarai
 h2 Majoring in Mayonnaise Research &amp; Development
+
 section#location
   h2 Location
-  p Our university is located .....
+  p Our university is located ..... 
+
 section#about
   h2 About the Major
   section#about-major
     h3 Why Study Mayonnaise?
     p ......
-  session#career
-    h3
-      | Career Opportunities
-      p ........
+  section#career
+    h3 Career Opportunities
+    p ........
   section#research
     h3 Research
     p About research...
-section#images
-  h2 Images
+
 section#comments
-  h2 Student Comments
+  h2 Things To Do
+  a(href='/student3/commentsS3') Add things to do here.
   ul#comments-list
+    if comments && comments.length > 0
+      each comment in comments
+        li= comment.comment
+    else
+      li No comments to display.
