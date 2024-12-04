@@ -14,6 +14,11 @@ html
       each comment in comments
         li
           p= comment.comment
+          form(action='/student3/editS3' method='post')
+            input(type='hidden' name='id' value=comment.id)
+            input(type='text' name='newComment' value=comment.comment required='')
+            button(type='submit') Edit
+          //Form to delete comment
           form(action='/student3/deleteS3' method='post')
             input(type='hidden' name='id' value=comment.id)
             button(type='submit') Delete

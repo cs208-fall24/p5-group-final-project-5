@@ -144,6 +144,23 @@ app.post('/student3/addCommentS3', function (req, res) {
     res.redirect('/student3/commentsS3');
 });
 
+app.post('/student3/editS3', function (req, res) {
+    const { id, newComment } = req.body;
+    if (!newComment || newComment.trim() === '') {
+        return res.redirect('/student3/commentsS3');
+    }
+
+    console.log(`Editing comment ID ${id} with new text: ${newComment}`);
+    const stmt = db.prepare('UPDATE student3_comments SET comment = ? WHERE id = ?');
+    stmt.run(newComment, id, function (err) {
+        if (err) {
+            console.error('Error updating comment:', err);
+        }
+        stmt.finalize();
+        res.redirect('/student3/commentsS3');
+    });
+});
+
 app.post('/student3/deleteS3', function (req, res) {
     const commentId = req.body.id;
     console.log(`Deleting comment for Student 3 with ID: ${commentId}`);
