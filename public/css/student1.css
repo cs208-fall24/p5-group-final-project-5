@@ -7,3 +7,44 @@
 body{
     background-color:white;
 }
+
+#about {
+    padding: 40px;
+    background-color: #f4f4f4; /* Light background for the section */
+  }
+  
+  .content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  
+  .text {
+    flex: 2; /* Takes up 2/3 of the container width */
+    padding-right: 20px;
+  }
+  
+  .image {
+    flex: 1; /* Takes up 1/3 of the container width */
+    display: flex;
+    justify-content: right;
+    align-items: right;
+  }
+  
+  h2 {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 20px;
+  }
+  
+  h3 {
+    font-size: 1.2em;
+    line-height: 1.6;
+    margin-bottom: 15px;
+  }
+  
+  img {
+    max-width: 100%; /* Ensures the image scales responsively */
+    height: auto;
+    border-radius: 8px; /* Optional: Adds rounded corners to the image */
+  }

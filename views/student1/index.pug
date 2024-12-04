@@ -4,46 +4,50 @@ link(rel='stylesheet' href='css/student1.css')
 head
   title Degree Webpage
 body
+  h1 Daniel Trice
   h2 Hoopology
 
 
 section(id = location)
-  h2 Chapel Hill, North Carolina
-  p Describe Location of University 
+  h2 Location
+  p Located just to the west of the Empire State Building at the Maddison Square Garden. Home of the New York Knicks 
+  img(src = '/img/MSG-Madison-Square-Garden.png')
 
   
 section(id = about)
   h2 About
-  section
-    h3  Something about the university
-  section
-    h3  Something about the university
-  section
-    h3  Something about the university
+
+  div.text
+    section
+      h3  This course has been taken by top basketball players world wide. Including Lebron James, Shaquil O'Niel and Kobe Bryant. 
+    section
+      h3  Teaches you the science behind your jumper so you can figure out why you are such a brick. After this course you will be able to hit from anywhere on the court using advanced trigometric formulas. 
+    section
+      h3  You will learn the kinestetic science behind jumping and running. This will let you get the mamimum out of your verticle, you will be putting these fools on posters in no time son. 
+  div.image
+    img(src='/img/lbGif.gif')
+
 section(id = activities)
   h2 Things To Do
   ul(id = activitiesList)
-    li
-      | something to do
-    li
-      | something to do
-    li
-      | something to do
-    li
-      | something to do
-    li
-      | something to do
+    li Become a force in the paint like Shaq or Duncan
+    li Use your degree for science and become a sharpshooter like Steph or Ray Allen
+    li Use your new found scoring ability to break records like Lebron or Durant 
+    li Fly through the air with your new found athleticism like Jordan or Carter
+    li Or you could even become the GOAT
 
 
   section
     a(href='/commentsS1') Comments
     
-    ul
-    - if (comments && comments.length > 0)
-        - for (let i = 0; i < comments.length; i++)
-            li= comments[i].comment
-    - else
-        p No Comments available.
+  ul
+      - if (comments && comments.length > 0)
+          - // Shuffle comments array randomly
+          - const randomComments = comments.sort(() => Math.random() - 0.5).slice(0, 5);
+          - for (let i = 0; i < randomComments.length; i++)
+              li= randomComments[i].comment
+      - else
+          p No Comments available.
 
 
   section(id = homeButton)
