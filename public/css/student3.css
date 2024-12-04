@@ -9,7 +9,7 @@ body {
 
 /* Header Styles */
 h1, h2, h3 {
-    color: #4CAF50;
+    color: #06a77d;
     margin: 10px 0;
     text-align: center;
 }
@@ -38,14 +38,14 @@ section {
 }
 
 #location, #about, #images, #comments {
-    border-top: 3px solid #4CAF50;
+    border-top: 3px solid #06a77d;
     padding-top: 20px;
 }
 
 #about-major, #career, #research {
     margin-top: 15px;
     padding: 10px;
-    border-left: 3px solid #4CAF50;
+    border-left: 3px solid #06a77d;
     background: #f9f9f9;
 }
 
