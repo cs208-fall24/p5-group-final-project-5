@@ -1,8 +1,8 @@
 doctype html
-link(rel='stylesheet' href='css/student2.css')
 
 head
     title Zombie Historical Arts (Masters) - student 2
+    link(rel='stylesheet' href='css/student2.css')
 body
     section#header
         h1 Gavin Tafoya
@@ -45,20 +45,9 @@ body
     section.area
         h2 Comments
         hr
-        section#commentSection
-            label(for="comment-box") Add your own Comment here
-            textarea#textbox(name="comment-box" placeholder="Add Comment...")
-        
-        ul
-        -console.log(comments);
-        //- for (let i = 0; i < comments.length; i++)
-            li.comment= comments.comment
-                form(action="/edit", method="post")
-                    input(type="hidden", name="id" value=tasks[i].id)
-                    input(type="submit" value="Edit")
-                form(action="/delete", method="post")
-                    input(type="hidden", name="id" value=tasks[i].id)
-                    input(type="submit" value="Delete")
+        - for (let i = 0; i < Math.min(comments.length, 5); i++)
+            li.comment= comments[i].comment
+        a(href="comments") Make, Delete or Edit a Comment
               
 
 

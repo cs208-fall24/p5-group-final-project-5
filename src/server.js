@@ -81,10 +81,78 @@ app.post('/deleteS1', function (req, res) {
     stmt.finalize()
 })
 
+
+
+
+//student2 functionality
+db.run(`CREATE TABLE IF NOT EXISTS zombTable (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    comment TEXT NOT NULL)`)
+
+//create JSON of comment rows
 app.get('/student2', function (req, res) {
-  console.log('GET called')
-  res.render('student2')
+console.log('GET called')
+res.render('student2')
+const local = { comments: [] }
+db.each('SELECT id, comment FROM zombTable', function (err, row) {
+    if (err) {
+    console.log(err)
+    } else {
+    local.comments.push({ id: row.id, comment: row.comment })
+    }
+}, function (err, numrows) {
+    if (!err) {
+    res.render('student2', local)
+    } else {
+    console.log(err)
+    }
 })
+})
+
+//get comments page
+app.get('/comments', function (req, res) {
+const local = { comments: [] }
+db.each('SELECT id, comment FROM zombTable', function (err, row) {
+    if (err) {
+    console.log(err)
+    } else {
+    local.comments.push({ id: row.id, comment: row.comment })
+    }
+}, function (err, numrows) {
+    if (!err) {
+    res.render('student2/comments', local)
+    } else {
+    console.log(err)
+    }
+})
+})
+
+//SQL Insert of Comment
+app.post('/comments', function (req, res) {
+const stmt = db.prepare('INSERT INTO zombTable (comment) VALUES (@0)')
+stmt.run(req.body.commentbox)
+stmt.finalize()
+res.redirect('student2')
+})
+
+//SQL Delete of Comment
+app.post('/delete', function (req, res) {
+const stmt = db.prepare('DELETE FROM zombTable where id = (@0)')
+stmt.run(req.body.commentbox)
+stmt.finalize()
+res.redirect('student2')
+})
+
+//SQL Delete of Comment
+app.post('/edit', function (req, res) {
+const stmt = db.prepare('UPDATE SET comment = c FROM zombTable where id = (@0)')
+stmt.run(req.body.commentbox)
+stmt.finalize()
+res.redirect('student2')
+})
+
+
+
 
 
 //Student 3

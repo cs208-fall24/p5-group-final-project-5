@@ -1,0 +1,26 @@
+doctype html
+head
+    title Zombie Historical Arts (Masters) - student 2 - comments
+    link(rel='stylesheet' href='css/student2.css')
+    script(src="js/student2.js")
+body
+    section
+        ul
+        - for (let i = 0; i < comments.length; i++)
+            li.comment= comments[i].comment
+                form(action="edit", method="post")
+                    input(type="hidden", name="id", value=comments[i].id)
+                    a(href="#/edit" onClick="revealEdit(" + i + ")") edit
+                    section.editbox(hidden)
+                        label(for="editbox") Add your own Comment here
+                        textarea.textbox(name="editbox", placeholder="Edited comment...")
+                        input(type="submit", value="Submit")
+                form.delete(action="delete", method="post")
+                    input(type="hidden", name="id" value=comments[i].id)
+                    a(href="/", disabled, onClick="delete(" + i + ")") delete
+
+    section#commentSection
+            form(action="", method="post")
+                label(for="commentbox") Add your own Comment here
+                textarea.textbox(name="commentbox", placeholder="Add Comment...")
+                input(type="submit", value="Submit")
