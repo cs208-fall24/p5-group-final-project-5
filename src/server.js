@@ -33,29 +33,29 @@ db.run(`CREATE TABLE IF NOT EXISTS student1_table (
     comment TEXT NOT NULL)`)
 //get student 1 page
 app.get('/student1', function (req, res) {
-  console.log('GET /comments called')
-  const local = { comments: [] }
-  db.all('SELECT id, comment FROM student1_table', function (err, rows) {
-  db.all('SELECT id, comment FROM student1_table', function (err, rows) {
-      if (err) {
-          console.log(err)
-      } else {
-          local.comments = rows.map(row => ({
-              id: row.id,
-              comment: row.comment
-          }))
-          // Renders student ones main page
-          res.render('student1', local)
-      }
+    console.log('GET /comments called')
+    const local = { comments: [] }
+    db.all('SELECT id, comment FROM  student1_table', function (err, rows) {
+        if (err) {
+            console.log(err)
+        } else {
+            local.comments = rows.map(row => ({
+                id: row.id,
+                comment: row.comment
+            }))
+            // Renders student ones main page
+            res.render('student1', local)
+        }
+    })
   })
-})
+  
+
 
 //Student 1 get comments
 app.get('/commentsS1', function(req, res) {
   console.log('GET /comments called')
   const local = { comments: [] }
-  db.all('SELECT id, comment FROM student1_table', function (err, rows) {
-  db.all('SELECT id, comment FROM student1_table', function (err, rows) {
+  db.all('SELECT id, comment FROM  student1_table', function (err, rows) {
       if (err) {
           console.log(err)
       } else {
@@ -69,17 +69,18 @@ app.get('/commentsS1', function(req, res) {
   })
 })
 
+
+
 //Student 1 new comment
 app.post('/newCommentS1', function (req, res) {
-    const commentInput = req.body.student1_table
-    const commentInput = req.body.student1_table
+    const commentInput = req.body.todo
     if (!commentInput || commentInput.trim() === '') {
         return res.redirect('/')
     }
 
     console.log('adding comment')
     const stmt = db.prepare('INSERT INTO student1_table (comment) VALUES (?)')
-    stmt.run(req.body.student1_table)
+    stmt.run(req.body.todo)
     res.redirect('/commentsS1')
     stmt.finalize()
 })
@@ -87,13 +88,11 @@ app.post('/newCommentS1', function (req, res) {
 //Student 1 delete comment
 app.post('/deleteS1', function (req, res) {
     console.log('deleting comment')
-    const stmt = db.prepare('DELETE FROM student1_table WHERE id = ?')
+    const stmt = db.prepare('DELETE FROM  student1_table WHERE id = ?')
     stmt.run(req.body.id)
     res.redirect('/commentsS1')
     stmt.finalize()
 })
-
-
 
 
 //student2 functionality
@@ -255,10 +254,7 @@ app.post('/student3/deleteS3', function (req, res) {
     res.redirect('/student3/commentsS3');
 });
 
-// Start the web server
-app.listen(3000, function () {
-    console.log('Listening on port 3000...')
-})
+
 
 
 
