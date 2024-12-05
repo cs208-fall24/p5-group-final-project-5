@@ -6,30 +6,31 @@ const sqlite3 = sql.verbose()
 // Create an in-memory database for testing
 const db = new sqlite3.Database(':memory:')
 
-// Create the table
-db.run(`CREATE TABLE todo (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    comment TEXT NOT NULL)`)
-
 const app = express()
 app.use(express.static('public'))
 app.set('views', 'views')
 app.set('view engine', 'pug')
 app.use(express.urlencoded({ extended: false }))
 
-
 app.get('/', function (req, res) {
   console.log('GET called')
   res.render('index')
 })
 
-
-
+// Start the web server
+app.listen(3000, function () {
+    console.log('Listening on port 3000...')
+})
 //Student 1 stuff
+
+db.run(`CREATE TABLE IF NOT EXISTS student1_table (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    comment TEXT NOT NULL)`)
+//get student 1 page
 app.get('/student1', function (req, res) {
   console.log('GET /comments called')
   const local = { comments: [] }
-  db.all('SELECT id, comment FROM todo', function (err, rows) {
+  db.all('SELECT id, comment FROM student1_table', function (err, rows) {
       if (err) {
           console.log(err)
       } else {
@@ -43,10 +44,11 @@ app.get('/student1', function (req, res) {
   })
 })
 
+//Student 1 get comments
 app.get('/commentsS1', function(req, res) {
   console.log('GET /comments called')
   const local = { comments: [] }
-  db.all('SELECT id, comment FROM todo', function (err, rows) {
+  db.all('SELECT id, comment FROM student1_table', function (err, rows) {
       if (err) {
           console.log(err)
       } else {
@@ -60,19 +62,21 @@ app.get('/commentsS1', function(req, res) {
   })
 })
 
-app.post('/newComment', function (req, res) {
-    const commentInput = req.body.todo
+//Student 1 new comment
+app.post('/newCommentS1', function (req, res) {
+    const commentInput = req.body.student1_table
     if (!commentInput || commentInput.trim() === '') {
         return res.redirect('/')
     }
 
     console.log('adding comment')
     const stmt = db.prepare('INSERT INTO todo (comment) VALUES (?)')
-    stmt.run(req.body.todo)
+    stmt.run(req.body.student1_table)
     res.redirect('/commentsS1')
     stmt.finalize()
 })
 
+//Student 1 delete comment
 app.post('/deleteS1', function (req, res) {
     console.log('deleting comment')
     const stmt = db.prepare('DELETE FROM todo WHERE id = ?')
@@ -154,10 +158,6 @@ app.post('/edit', function (req, res) {
     res.redirect('comments')
 
 })
-
-
-
-
 
 //Student 3
 db.run(`CREATE TABLE IF NOT EXISTS student3_comments (
@@ -251,5 +251,7 @@ app.post('/student3/deleteS3', function (req, res) {
 app.listen(3000, function () {
     console.log('Listening on port 3000...')
 })
+
+
 
 

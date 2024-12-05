@@ -1,9 +1,166 @@
-/* body{
-    background-image: url(/img/PorscheGIF.gif);
-    background-size: cover;
-    overflow: hidden;
-} */
-
 body{
     background-color:white;
+    
+}
+
+.myName{
+  font-size: 10px;
+}
+
+.degreeTitle{
+  font-size: 50px;
+  text-align: center;
+  font-family: 	fantasy;
+}
+
+.buttons 
+{
+  background-color: bisque; 
+  border: 1px solid black; 
+  display: flex; 
+  justify-content: space-between; 
+  width: 100%; 
+  font-family: 	fantasy;
+}
+  
+.location
+{
+  h2
+  {
+    text-align: center;
+    font-weight: normal;
+  }
+
+  width: 100%;
+  padding: 10px;
+
+  text-align: center;
+  font-size: 18px;
+  font-family: fantasy;
+  font-weight: normal; 
+}
+
+.about 
+{
+  h2
+  {
+    text-align: center;
+    font-weight: normal;
+  }
+  
+  display: flex;
+  justify-content: space-around;
+
+  width: 80%;
+
+  font-size: 18px;
+  font-family: 	fantasy;
+  
+  font-weight: normal;
+}
+
+.aboutText
+{
+  h3{
+    font-weight: normal;
+    font-size: 18px;
+  }
+  width: 40%;
+  padding: 10px;
+}
+
+.aboutIMG
+{
+  width: 40%;
+  padding: 10px;
+}
+
+.activities
+  {
+    h2
+    {
+    text-align: center;
+    font-weight: normal;
+    }
+
+    display: flex;
+    justify-content: space-evenly;
+
+    width: 100%;
+    font-size: 18px;
+    font-family: 	fantasy;
+    font-weight: normal;
+  }
+  
+
+.activitiesText
+{
+  h3
+  {
+    font-weight: normal;
+    font-size: 18px;
+  }
+  width: 40%;
+  padding: 10px;
+}
+
+.activitiesIMG
+{
+  width: 60%;
+  padding: 10px;
+}
+
+.commentButton
+{
+  text-align: right;
+  font-family: 	fantasy;
+  font-weight: normal;
+}
+
+.homeButton
+{
+  text-align: left;
+  font-family: 	fantasy;
+  font-weight: normal;
+}
+
+
+.backButton
+{
+  text-align: left;
+  font-family: 	fantasy;
+  font-weight: normal;
+}
+
+
+.comments
+  {
+    h2
+    {
+      text-align: center;
+      font-family: 	fantasy;
+    }
+    border: 1px solid black; 
+    width: 100%;
+    padding: 10px;
+    font-size: 18px;
+    font-weight: normal;
+    font-family: 	fantasy;
+  }
+
+.commentPage
+{
+  h1
+  {
+    text-align: center;
+    font-family: fantasy;
+    font-weight: normal;
+  }
+  
+  width: 100%;
+
+  text-align: center;
+  font-size: 18px;
+  font-weight: normal;
+  font-family: 	fantasy;
 }

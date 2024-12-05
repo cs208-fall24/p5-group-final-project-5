@@ -1,53 +1,72 @@
 doctype html
 link(rel='stylesheet' href='css/student1.css')
 
+ 
+  
 head
   title Degree Webpage
-body
-  h2 Hoopology
-
-
-section(id = location)
-  h2 Chapel Hill, North Carolina
-  p Describe Location of University 
-
   
-section(id = about)
-  h2 About
-  section
-    h3  Something about the university
-  section
-    h3  Something about the university
-  section
-    h3  Something about the university
-section(id = activities)
-  h2 Things To Do
-  ul(id = activitiesList)
-    li
-      | something to do
-    li
-      | something to do
-    li
-      | something to do
-    li
-      | something to do
-    li
-      | something to do
+
+body
+  section.buttons
+      a(href='/') Major List
+      a(href='/commentsS1') Comments
+  
+  h1.myName Daniel Trice
+  h2.degreeTitle Hoopology
 
 
-  section
-    a(href='/commentsS1') Comments
-    
-    ul
-    - if (comments && comments.length > 0)
-        - for (let i = 0; i < comments.length; i++)
-            li= comments[i].comment
-    - else
-        p No Comments available.
+section.location
+  h2 Location
+  p Located just to the west of the Empire State Building at the Madison Square Garden. Home of the New York Knicks 
+  a(href='https://www.msgentertainment.com/' target='_blank') You can learn more about the location here.
+  
+
+section.about
+  div.aboutText
+    h2 About Our Program
+    section
+      h3  1. This course has been taken by top basketball players world wide. Including Lebron James, Shaquil O'Niel and Kobe Bryant. 
+    section
+      h3  2. Teaches you the science behind your jumper so you can figure out why you are such a brick. After this course you will be able to hit from anywhere on the court using advanced trigometric formulas. 
+    section
+      h3  3 .You will learn the kinestetic science behind jumping and running. This will let you get the mamimum out of your verticle, you will be putting these fools on posters in no time son. 
+    section
+      h3  4. We also have top of the line trainers and gear to get you and keep you in the best shape. 
+  div.aboutIMG
+   
+    img(src = './img/madison-square-garden-at-night.webp')
 
 
-  section(id = homeButton)
-    a(href='/') HOME
+section.activities
+  div.activitiesText
+    h2 Things To Do
+    ul.activitiesList
+      li You can become a beast in the paint like Shaq or Duncan
+      li Study hard in jumper science and become a sharpshooter like Steph or Ray Allen
+      li Or your new found scoring ability to break records like Lebron or Durant 
+      li Fly through the air with your new found athleticism like Jordan or Carter
+      li Or you could even become the GOAT
+  div.activitiesIMG
+    img(src = './img/lebron-james-dunk.gif')
+    img(src = './img/MJGIF.gif')
+
+
+section.comments
+  p Comments About Our Program.
+  ul
+      - if (comments && comments.length > 0)
+          - const randomComments = comments.sort(() => Math.random() - 0.5).slice(0, 5);
+          - for (let i = 0; i < randomComments.length; i++)
+              li= randomComments[i].comment
+      - else
+          p No Comments available. 
+        
+  a(href='/commentsS1') Leave a Comment Here!
+
+
+
+
 
 
 
