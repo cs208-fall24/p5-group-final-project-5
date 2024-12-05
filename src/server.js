@@ -132,7 +132,7 @@ app.post('/comments', function (req, res) {
         stmt.run(req.body.commentbox)
         stmt.finalize()
     }
-    res.redirect('student2')
+    res.redirect('comments')
 })
 
 //SQL Delete of Comment
@@ -140,7 +140,7 @@ app.post('/delete', function (req, res) {
     const stmt = db.prepare('DELETE FROM zombTable where id = (@0)')
     stmt.run(req.body.id)
     stmt.finalize()
-    res.redirect('student2')
+    res.redirect('comments')
 })
 
 //SQL Edit of Comment
@@ -151,7 +151,7 @@ app.post('/edit', function (req, res) {
         stmt.run(req.body.editbox, req.body.id)
         stmt.finalize()
     }
-    res.redirect('student2')
+    res.redirect('comments')
 
 })
 
