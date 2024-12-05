@@ -93,6 +93,7 @@ db.run(`CREATE TABLE IF NOT EXISTS student3_comments (
     comment TEXT NOT NULL
 )`)
 
+// Render the main page for student 3
 app.get('/student3', function (req, res) {
     console.log('GET /student3 called');
     const local = { comments: [] };
@@ -112,6 +113,7 @@ app.get('/student3', function (req, res) {
     });
 });
 
+//Render all comments for Student 3
 app.get('/student3/commentsS3', function (req, res) {
     console.log('GET /student3/commentsS3 called');
     const local = { comments: [] };
@@ -131,6 +133,7 @@ app.get('/student3/commentsS3', function (req, res) {
     });
 });
 
+// Handle adding a new comment
 app.post('/student3/addCommentS3', function (req, res) {
     const commentInput = req.body.todo;
     if (!commentInput || commentInput.trim() === '') {
@@ -144,6 +147,7 @@ app.post('/student3/addCommentS3', function (req, res) {
     res.redirect('/student3/commentsS3');
 });
 
+//Handle editing a comment
 app.post('/student3/editS3', function (req, res) {
     const { id, newComment } = req.body;
     if (!newComment || newComment.trim() === '') {
@@ -161,6 +165,7 @@ app.post('/student3/editS3', function (req, res) {
     });
 });
 
+//Handle deleting a comment
 app.post('/student3/deleteS3', function (req, res) {
     const commentId = req.body.id;
     console.log(`Deleting comment for Student 3 with ID: ${commentId}`);
