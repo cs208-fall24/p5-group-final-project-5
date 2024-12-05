@@ -1,0 +1,28 @@
+doctype html
+html
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    title Things to do
+  body
+    h1 Things to do
+    form(action='/student3/addCommentS3' method='post')
+      label(for='task') Add a new comment:
+      input#task(type='text' name='todo' required='')
+      button(type='submit') Add Comment
+      
+    ul#comments-list
+      each comment in comments
+        li
+          p= comment.comment
+          form(action='/student3/editS3' method='post')
+            input(type='hidden' name='id' value=comment.id)
+            input(type='text' name='newComment' value=comment.comment required='')
+            button(type='submit') Edit
+
+          //Form to delete comment
+          form(action='/student3/deleteS3' method='post')
+            input(type='hidden' name='id' value=comment.id)
+            button(type='submit') Delete
+             hr
+    a(href='/student3') Back to Things to Do
