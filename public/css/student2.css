@@ -11,6 +11,20 @@ body{
     text-align: center;
     margin: 0;
     font-family: "Comic Sans MS", "Comic Sans", cursive;
+    font-size: large;
+}
+
+ul {
+    list-style: none;
+}
+
+img{
+    width: 60%;
+    border-radius: 50px;
+}
+
+button, input{
+    width: 50%;
 }
 
 nav ul{
@@ -44,6 +58,20 @@ nav ul li a:hover {
     margin: 0;
 }
 
+#commentList{
+    min-height: 50vh;
+}
+
+.comment {
+    padding: 2vh;
+    text-align: start;
+    background-color: var(--main-color);
+    color: var(--element-background);
+    list-style: none;
+    margin: auto;
+    width: 50%;
+}
+
 .area{
     margin: 2vh 2vw;
     border-radius: 10px;   
@@ -56,9 +84,4 @@ nav ul li a:hover {
     width: 80%;
     margin: 2vh auto;
     color: var(--main-color);
-}
-
-img{
-    width: 80%;
-    border-radius: 50px;
 }

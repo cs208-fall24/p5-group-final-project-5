@@ -1,7 +1,10 @@
+//delete an object
 function remove(id){
-    document.getElementsByClass("delete")[id].submit();
+    document.getElementsByClassName("delete")[id].submit();
 }
 
+//toggle which comment box is being used
 function revealEdit(id){
-    document.getElementsByClass("editbox")[i].hidden = !document.getElementsByClass("editbox")[i].hidden
+    document.getElementsByClassName("editbox")[id].hidden = !document.getElementsByClassName("editbox")[id].hidden;
+    document.getElementById("commentSection").hidden = !document.getElementById("commentSection").hidden;
 }

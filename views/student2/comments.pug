@@ -4,23 +4,44 @@ head
     link(rel='stylesheet' href='css/student2.css')
     script(src="js/student2.js")
 body
-    section
+    section#header
+        h1 Gavin Tafoya
+        nav 
+            ul
+                li 
+                    a(href="/") Home
+                li 
+                    a(href="/student1") Student 1
+                li 
+                    a(href="/student2") Student 2
+                li 
+                    a(href="/student3") Student 3
+    h2 Zombie Historical Arts
+    a(href="/student2") Return to ZHA
+    section.area#commentList
         ul
         - for (let i = 0; i < comments.length; i++)
             li.comment= comments[i].comment
-                form(action="edit", method="post")
-                    input(type="hidden", name="id", value=comments[i].id)
-                    a(href="#/edit" onClick="revealEdit(" + i + ")") edit
-                    section.editbox(hidden)
-                        label(for="editbox") Add your own Comment here
-                        textarea.textbox(name="editbox", placeholder="Edited comment...")
-                        input(type="submit", value="Submit")
-                form.delete(action="delete", method="post")
-                    input(type="hidden", name="id" value=comments[i].id)
-                    a(href="/", disabled, onClick="delete(" + i + ")") delete
+            br
+            button(onClick="revealEdit(" + i + ")") edit
+            form(action="/delete", method="post")
+                input(type="hidden", name="id", value=comments[i].id)
+                button(onClick="remove(" + i + ")") delete
+                br
+            form.editbox(action="/edit", method="post", hidden)
+                input(type="hidden", name="id", value=comments[i].id)
+                label(for="editbox")= "Edit this comment: " + comments[i].comment
+                br
+                br
+                textarea.textbox(name="editbox", placeholder="Edited comment...")
+                br
+                input(type="submit", value="Submit")
 
-    section#commentSection
+    section#commentSection.area
             form(action="", method="post")
                 label(for="commentbox") Add your own Comment here
+                br
+                br
                 textarea.textbox(name="commentbox", placeholder="Add Comment...")
+                br
                 input(type="submit", value="Submit")
