@@ -17,13 +17,15 @@ app.set('views', 'views')
 app.set('view engine', 'pug')
 app.use(express.urlencoded({ extended: false }))
 
-
 app.get('/', function (req, res) {
   console.log('GET called')
   res.render('index')
 })
 
-
+// Start the web server
+app.listen(3000, function () {
+    console.log('Listening on port 3000...')
+})
 
 //Student 1 stuff
 app.get('/student1', function (req, res) {
@@ -43,6 +45,7 @@ app.get('/student1', function (req, res) {
   })
 })
 
+//Student 1 get comments
 app.get('/commentsS1', function(req, res) {
   console.log('GET /comments called')
   const local = { comments: [] }
@@ -60,7 +63,8 @@ app.get('/commentsS1', function(req, res) {
   })
 })
 
-app.post('/newComment', function (req, res) {
+//Student 1 new comment
+app.post('/newCommentS1', function (req, res) {
     const commentInput = req.body.todo
     if (!commentInput || commentInput.trim() === '') {
         return res.redirect('/')
@@ -73,6 +77,7 @@ app.post('/newComment', function (req, res) {
     stmt.finalize()
 })
 
+//Student 1 delete comment
 app.post('/deleteS1', function (req, res) {
     console.log('deleting comment')
     const stmt = db.prepare('DELETE FROM todo WHERE id = ?')
@@ -91,9 +96,6 @@ app.get('/student3', function (req, res) {
   res.render('student3')
 })
 
-// Start the web server
-app.listen(3000, function () {
-    console.log('Listening on port 3000...')
-})
+
 
 
