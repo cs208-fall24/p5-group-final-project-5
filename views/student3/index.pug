@@ -1,8 +1,56 @@
 doctype html
-link(rel='stylesheet' href='css/student3.css')
-
 head
-    title Mayonnaise expert (PHD) - student 3
-body
-    h1 You will learn how to study Mayonnaise
-    p A complete degree in Mayonnaise research and development
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Landing Page
+  link(rel='stylesheet' href='css/student3.css')
+h1 Anup Bhattarai
+h2 Majoring in Mayonnaise Research &amp; Development
+
+section#location
+  h2 Location
+  p Our university is in a great spot for food lovers and researchers. It’s surrounded by advanced food labs and a community that loves good food. It’s the perfect place to learn, grow, and experiment with mayonnaise.
+
+
+section#about
+  h2 About the Major
+  section#about-major
+    h3 Why Study Mayonnaise?
+    p Mayonnaise is more than just a topping; it’s an important part of many foods. In this major, you’ll learn about how it’s made, why it works, and how to make it even better. You’ll explore:
+    ul 
+      li How to mix ingredients to create smooth and stable mayo.
+      li Creating new flavors for different tastes around the world.
+      li Using eco-friendly and healthy ingredients for modern needs.
+      
+  section#career
+    h3 Career Opportunities
+    p When you graduate, there are many jobs waiting for you, like:
+    ul 
+      li Food Scientist: Invent new types of mayonnaise and improve recipes.
+      li Quality Checker: Make sure the mayo tastes great and meets standards.
+      li Research Chef: Use mayonnaise in creative cooking ideas.
+
+  section#research
+    h3 Research
+    p Research in this field helps solve real food problems. You’ll work on cool projects like:
+    ul 
+      li Making vegan mayonnaise for people with allergies or food preferences.
+      li Studying ingredients that make mayonnaise healthier.
+      li Finding ways to keep mayo fresh for longer without harmful chemicals.
+
+section#images
+  h2 Mayonnaise in Action 
+  p Here are some glimpses of the amazing work happening in mayonnaise research: 
+  .image-container 
+    img(src="https://images.deepai.org/art-image/ba85cf4623d34de6b22696bdfce0960e/mayonnaise-university-students-lab.jpg")
+    img(src="https://images.deepai.org/art-image/59af890d881a47969f62133bfc1f44d1/mayonnaise-in-a-bowl-in-a-university-lab-7d5a53.jpg")
+
+section#comments
+  h2 Things To Do
+  a(href='/student3/commentsS3') Add things to do here.
+  ul#comments-list
+    if comments && comments.length > 0
+      each comment in comments
+        li= comment.comment
+    else
+      li No comments to display.

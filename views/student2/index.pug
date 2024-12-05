@@ -1,7 +1,56 @@
 doctype html
-link(rel='stylesheet' href='css/student2.css')
 
 head
-    title Under Water Basket weaver (Masters) - student 2
+    title Zombie Historical Arts (Masters) - student 2
+    link(rel='stylesheet' href='css/student2.css')
 body
-    h1 You will learn how to weave baskets underwater
+    section#header
+        h1 Gavin Tafoya
+        nav 
+            ul
+                li 
+                    a(href="/") Home
+                li 
+                    a(href="/student1") Student 1
+                li 
+                    a(href="/student2") Student 2
+                li 
+                    a(href="/student3") Student 3
+    h2 Zombie Historical Arts
+
+    section.area
+        h2 Location
+        p  The university is located is in a medieval castle. The nearby land is flooded with rubber ducks of all kinds, some are regular rubber ducks, some have fancy mustaches. Some even have magical powers! The one downside is that there are few remaining Zombies to study, forccing students to travel outside fo the land to find live material. 
+    section.area
+        h2 About
+        section 
+            h3 Historical Studies
+            p This ZHS is a major heavily focused on the history of the zombie war, including the outbreak, spread, strategies and eventual victory. All can be learned in this field with experiential learning, as well.
+        section 
+            h3 In Field Training
+            p Go out into the wild and find study subjects of your own! As a historian, we mostly train you on the historical aspects of the subject, but even so, you will have opportunity to experience the trainng regenment of first hand capture and study.
+        section 
+            h3 Rubber Ducks!
+            p Every student will have the chance to befriend their own rubber duck, upon completion of the orientation program. Every duck is unique and will guide you on your journey in this program. One can only imagine what is in store for their adventures with the duck.
+    section.area 
+        h2 Things To Do 
+        ul
+            li Study Zombies
+            li Discover Rich World of Zobetropolis
+            li Build the ULTIMATE Duck bond
+    section.area
+        h2 Images
+        img(src="https://images.fun.com/products/45914/1-1/minecraft-deluxe-child-zombie-costume-update.jpg" alt="zombie")
+        img(src="https://ichef.bbci.co.uk/images/ic/480xn/p0hf6642.jpg.webp", alt="rick")
+        img(src="https://preview.redd.it/please-send-the-magical-fantastical-backflipping-rubber-v0-xsvb4x8852od1.jpeg?auto=webp&s=d3730ef446599a4efc4b5912e70142c4ca07f136", alt="rubberduck", )
+    section.area
+        h2 Comments
+        hr
+        - for (let i = 0; i < Math.min(comments.length, 5); i++)
+            li.comment= comments[i].comment
+            hr
+        a(href="comments") Make, Delete or Edit a Comment
+              
+
+
+
