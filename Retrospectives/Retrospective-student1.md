@@ -14,7 +14,6 @@ the user can properly use the back arrow in the browser, I have put buttons myse
 I think that I have a way better understanding of how webpages and databases communicate, this project will also be useful for 
 me to use in the future as reference to look back at when making webpages in the future.
 
-
 ## Known issues or Bugs
 
 User cannot edit comments
@@ -24,3 +23,4 @@ No known bugs
 
 ChatGpt - debugging, translating html to pug, help with css questions
 https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request
+
