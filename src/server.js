@@ -7,7 +7,7 @@ const sqlite3 = sql.verbose()
 const db = new sqlite3.Database(':memory:')
 
 // Create the table
-db.run(`CREATE TABLE todo (
+db.run(`CREATE TABLE IF NOT EXISTS todo (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     comment TEXT NOT NULL)`)
 
