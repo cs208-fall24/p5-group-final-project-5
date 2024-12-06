@@ -5,7 +5,8 @@
 
 ## Experience
 
-Working on implementing the comments feature with create, edit, and delete functionality using SQLite was the fun part of the project. I improved my skills in datatbase management, and rendering dynamic views with Pug. Collaborating with the team over Git made the process smooth, allowing us to manage code changes effectively and work together.
+The first few tasks of the project were fairly straightforward, focusing on creating static website uding HTML and CSS. Converting the HTML into Pug templates was an easy transition with the use of the online tool. Something that was challenging was the later part of the project which involved creating, editing, and deleting funcionality for comments. Working with SQLite for database management and implementing the different funcionality using Express.js helped understand the backend development. 
+COllaborating with the team over Git made the process smooth, allowing us to manage code changes effectively and work together. This project improved my skills in database management, backend development, and UI rendering.
 
 ## Known issues or Bugs
 
